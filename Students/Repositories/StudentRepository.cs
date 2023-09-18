@@ -17,7 +17,7 @@ namespace Students.Repositories
         public async Task<List<Student>> GetAll()
         {
 
-            var students = await _context.Students.ToListAsync();
+            var students = await _context.Students.AsNoTracking().ToListAsync().ConfigureAwait(false);
 
             return students;
         }
